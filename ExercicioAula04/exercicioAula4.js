@@ -18,15 +18,16 @@ const gerarLista = listaAlunos => {
     listaAlunos.forEach(aluno => {
 
         var mediaAluno = (aluno.notaP1 + aluno.notaP2) / 2;
+        var corMedia = mediaAluno < 6 ? 'red' : 'blue';
         var corP1 = aluno.notaP1 < 6 ? 'red' : 'blue';
         var corP2 = aluno.notaP2 < 6 ? 'red' : 'blue';
         
         lista += "<tr>"
             + "<td>" + aluno.nome + "</td>"
             + "<td>" + aluno.ra + "</td>" 
-            + "<td style='color: " + corP1 + ";'>" + aluno.notaP1 + "</td>"
-            + "<td style='color: " + corP2 + ";'>" + aluno.notaP2 + "</td>"
-            + "<td>" + mediaAluno + "</td>"
+            + "<td style='color: " + corP1 + ";'>" + aluno.notaP1.toFixed(2) + "</td>"
+            + "<td style='color: " + corP2 + ";'>" + aluno.notaP2.toFixed(2) + "</td>"
+            + "<td style='color: " + corMedia + ";'>" + mediaAluno.toFixed(2) + "</td>"
             + "</tr>";
 
         if (mediaAluno >= 6) 
@@ -53,8 +54,8 @@ const gerarLista = listaAlunos => {
     + "</thead>"
     + "<tbody>"
     + "<tr>"
-    + "<td>" + mediaP1 + "</td>"
-    + "<td>" + mediaP2 + "</td>"
+    + "<td>" + mediaP1.toFixed(2) + "</td>"
+    + "<td>" + mediaP2.toFixed(2) + "</td>"
     + "<td>" + aprovados + "</td>"
     + "<td>" + reprovados + "</td>"
     + "</tr></tbody></table>";
